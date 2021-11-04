@@ -40,17 +40,8 @@ class MainActivity : AppCompatActivity() {
     private val cameraButton: Button by lazy {
         findViewById(R.id.camera_capture_button)
     }
-    private val handler = Handler(Looper.myLooper()!!)
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
-    val landRunnable = Runnable {
-        animFlag = 1
-        setRotate(cameraButton.id,"Button",90f, 300)
-    }
-    val portRunnable = Runnable {
-        animFlag = 0
-        setRotate(cameraButton.id,"Button",-90f, 300)
-    }
     private val orientationEventListener by lazy {
         object : OrientationEventListener(this@MainActivity) {
             override fun onOrientationChanged(orientation: Int) {
@@ -79,12 +70,8 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                imageAnalysis?.run {
-                    targetRotation = rotation
-                }
-                imageCapture?.run {
-                    targetRotation = rotation
-                }
+                imageAnalysis?.run { targetRotation = rotation }
+                imageCapture?.run { targetRotation = rotation }
             }
         }
     }
@@ -185,21 +172,7 @@ class MainActivity : AppCompatActivity() {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode == REQUEST_CODE_PERMISSIONS){
-            if(allPermissionsGranted()){
-                startCamera()
-            }else{
-                Toast.makeText(this@MainActivity, "카메라 권한이 없습니다",Toast.LENGTH_SHORT).show()
-                finish()
-            }
-        }
-    }
+
 
     private fun setRotate(id: Int, type: String, rotate: Float, duration: Long){
         var currentDegree = 0f
