@@ -126,7 +126,13 @@ class MainActivity : AppCompatActivity() {
 
                 try {
                     cameraProvider.unbindAll()
-                    cameraProvider.bindToLifecycle(this@MainActivity, cameraSelector, preview, imageCapture, imageAnalysis)
+                    cameraProvider.bindToLifecycle(
+                        this@MainActivity,
+                        cameraSelector,
+                        preview,
+                        imageCapture,
+                        imageAnalysis
+                    )
                 } catch (e: Exception) {
                     Log.e(TAG,"바인딩 실패",e)
                 }
@@ -135,14 +141,17 @@ class MainActivity : AppCompatActivity() {
     private fun takePhoto(){
         val imageCapture = imageCapture ?: return
         val photoFile = File(
-            outputDirectory, SimpleDateFormat(FILENAME_FORMAT, Locale.KOREA)
+            outputDirectory,
+            SimpleDateFormat(FILENAME_FORMAT, Locale.KOREA)
                 .format(System.currentTimeMillis()) + ".png"
         )
 
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
 
         imageCapture.takePicture(
-            outputOptions, ContextCompat.getMainExecutor(this@MainActivity),object: ImageCapture.OnImageSavedCallback{
+            outputOptions,
+            ContextCompat.getMainExecutor(this@MainActivity),
+            object: ImageCapture.OnImageSavedCallback{
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                     val saveUri = Uri.fromFile(photoFile)
                     ExifInterface(photoFile.absolutePath).run{
