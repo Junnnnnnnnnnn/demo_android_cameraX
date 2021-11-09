@@ -50,9 +50,14 @@ class MainActivity : AppCompatActivity() {
                 }
 //                Log.d(TAG,"onOrientationChanged 나옴?! $orientation")
                 val rotation = when (orientation) {
-                    in 45 until 135 -> Surface.ROTATION_270
+                    in 45 until 135 -> {
+                        Surface.ROTATION_270
+                    }
                     in 135 until 225 -> Surface.ROTATION_180
                     in 250 until 315 -> {
+                        if(orientation > 310){
+                            return
+                        }
                         if(animFlag == 0){
                             Log.d(TAG,"가로 ::: $orientation")
                             animFlag = 1
@@ -61,6 +66,9 @@ class MainActivity : AppCompatActivity() {
                         Surface.ROTATION_90
                     }
                     else -> {
+                        if(orientation > 240){
+                            return
+                        }
                         if(animFlag == 1){
                             Log.d(TAG,"세로 ::: $orientation")
                             animFlag = 0
