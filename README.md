@@ -1,21 +1,15 @@
 # 🏃[Android] Jetpack cameraX demo
 
--------
-
 ## 🤨 Why
 
 - MediaStore.ACTION_IMAGE_CAPTURE 를 사용하다 카메라 커스텀이 필요해 개발
 - 기존 사진 어플을 통해 사진을 찍으면 미리보기가 나오고 저장 취소를 묻는데 이 기능이 불필요함
-
--------
 
 ## 🙋 Try 
 
 - Jetpack cameraX 사용해보기
 - 화면 전환시 Activity 재실행 방지
 - 화면 비율 픽스 해보기 (19:6)
-
-------
 
 ## ✏️ Gradle 설정
 
@@ -38,8 +32,6 @@ dependencies {
   implementation "androidx.camera:camera-view:1.0.0-alpha27"
 }
 ```
-
----------
 
 ## ✏️ manifest 설정
 
@@ -113,8 +105,6 @@ dependencies {
     </provider>
     ```
 
-------
-
 ## ✏️ 외부 저장소 path 설정하기
 
 - res/xml/file_paths.xml
@@ -125,8 +115,6 @@ dependencies {
       <external-path name="my_images" path="Android/data/com.yourpath.example/files/Pictures" />
   </paths>
   ```
-
---------
 
 ## ✏️ 미리보기 View 와 사진 촬영 View를 담은 Layout 구성
 
@@ -161,11 +149,7 @@ dependencies {
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
------
-
 ## ✏️ Main 클래스 생성
-
---------------
 
 ### ✏️ onCreate 시 필수 권한 확인
 
@@ -204,8 +188,6 @@ override fun onRequestPermissionsResult(
   }
 }
 ```
-
-------------
 
 ### ✏️ startCamera 함수 작성
 
@@ -317,8 +299,6 @@ override fun onRequestPermissionsResult(
   ContextCompat.getMainExecutor(this@MainActivity)
   ```
 
---------
-
 ### ✏️ takePhoto 작성
 
 ```kotlin
@@ -395,8 +375,6 @@ override fun onRequestPermissionsResult(
       }
   )
   ```
-
------
 
 ## ✏️ 카메라 view는 픽스 되고 UI만 가로 세로 회전 컨트롤 하기
 
