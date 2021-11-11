@@ -13,7 +13,7 @@
 
 ## ✏️ Gradle 설정
 
-```json
+```
 plugins {
 	  ...
   	id 'kotlin-android-extensions'
