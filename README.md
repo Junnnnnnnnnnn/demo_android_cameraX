@@ -82,13 +82,13 @@ dependencies {
 
     ```xml
     <activity
-    		android:name=".MainActivity"
-    		android:screenOrientation="portrait"
-    		android:exported="true">
-    		<intent-filter>
-    				<action android:name="android.intent.action.MAIN" />
-    				<category android:name="android.intent.category.LAUNCHER" />
-    		</intent-filter>
+	android:name=".MainActivity"
+	android:screenOrientation="portrait"
+	android:exported="true">
+	<intent-filter>
+			<action android:name="android.intent.action.MAIN" />
+			<category android:name="android.intent.category.LAUNCHER" />
+	</intent-filter>
     </activity>
     ```
 
@@ -212,8 +212,9 @@ override fun onRequestPermissionsResult(
                     .also {
                         it.setSurfaceProvider(viewFinder.surfaceProvider)
                     }
-                imageCapture = ImageCapture.Builder()
-                    .build()
+                imageCapture = ImageCapture.Builder().apply {
+		    setTargetAspectRatio(AspectRatio.RATIO_16_9)
+		}.build()
 
                 val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
