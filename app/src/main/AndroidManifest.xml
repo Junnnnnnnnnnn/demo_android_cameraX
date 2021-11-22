@@ -20,6 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CameraActivity"
+                  android:screenOrientation="portrait"
+                  android:exported="true"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
