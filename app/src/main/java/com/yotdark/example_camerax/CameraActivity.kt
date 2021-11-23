@@ -204,7 +204,6 @@ class CameraActivity : AppCompatActivity() {
         ObjectAnimator.ofFloat(view, View.ROTATION, currentDegree, currentDegree + rotate)
             .setDuration(duration)
             .start()
-
     }
 
     private fun getOutputDirectory(): File {
