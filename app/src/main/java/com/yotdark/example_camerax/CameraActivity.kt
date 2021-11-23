@@ -169,26 +169,27 @@ class CameraActivity : AppCompatActivity() {
             object: ImageCapture.OnImageSavedCallback{
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                     val saveUri = Uri.fromFile(photoFile)
-                    ExifInterface(photoFile.absolutePath).run{
-                        getAttributeInt(ExifInterface.TAG_ORIENTATION,ExifInterface.ORIENTATION_NORMAL).run {
-                            Log.d(TAG,"$this")
+                    ExifInterface(photoFile.absolutePath).run {
+                        getAttributeInt(
+                            ExifInterface.TAG_ORIENTATION,
+                            ExifInterface.ORIENTATION_NORMAL
+                        ).run {
+                            Log.d(TAG, "$this")
                         }
                     }
 
-                    Toast.makeText(this@CameraActivity,"저장되었습니다",Toast.LENGTH_SHORT).show()
-                    Log.d(TAG,"사진이 정상 촬영 됬습니다. ${saveUri.path}")
+                    Toast.makeText(this@CameraActivity, "저장되었습니다", Toast.LENGTH_SHORT).show()
+                    Log.d(TAG, "사진이 정상 촬영 됬습니다. ${saveUri.path}")
 
                     val intent = Intent(this@CameraActivity, MainActivity::class.java)
                     intent.putExtra("path", saveUri.path)
-                    setResult(200,intent)
+                    setResult(200, intent)
                     finish()
 
                 }
-
                 override fun onError(exception: ImageCaptureException) {
                     Log.e(TAG,"촬영에 실패 했습니다",exception)
                 }
-
             }
         )
     }
