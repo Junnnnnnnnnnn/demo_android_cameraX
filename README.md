@@ -1,5 +1,18 @@
 # 🏃[Android] Jetpack cameraX demo
 
+## ✏️ Study
+
+- https://yotdark.tistory.com/39
+- [CameraX 사용하여 사진 촬영 및 저장(1)](https://github.com/Junnnnnnnnnnn/android_study/blob/master/Jetpack_cameraX/CameraX%20%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC%20%EC%82%AC%EC%A7%84%20%EC%B4%AC%EC%98%81%20%EB%B0%8F%20%EC%A0%80%EC%9E%A5%20(1).md)
+- [CameraX 사용하여 사진 촬영 및 저장(2)](https://github.com/Junnnnnnnnnnn/android_study/blob/master/Jetpack_cameraX/CameraX%20%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC%20%EC%82%AC%EC%A7%84%20%EC%B4%AC%EC%98%81%20%EB%B0%8F%20%EC%A0%80%EC%9E%A5%20(2).md)
+- [CameraX 사용하여 사진 촬영 및 저장(3)](https://github.com/Junnnnnnnnnnn/android_study/blob/master/Jetpack_cameraX/CameraX%20%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC%20%EC%82%AC%EC%A7%84%20%EC%B4%AC%EC%98%81%20%EB%B0%8F%20%EC%A0%80%EC%9E%A5%20(3).md)
+
+## 🌍 Setting
+
+- CompileSdk = 30
+- Minsdk = 24
+- TargetSdk = 30
+
 ## 🤨 Why
 
 - MediaStore.ACTION_IMAGE_CAPTURE 를 사용하다 카메라 커스텀이 필요해 개발
